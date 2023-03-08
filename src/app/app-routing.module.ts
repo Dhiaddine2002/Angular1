@@ -1,25 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {product} from "./Core/model/products";
-import {ProductComponent} from "./product/product.component";
-import {offsetSegment} from "@angular/compiler-cli/src/ngtsc/sourcemaps/src/segment_marker";
-import {ArticleComponentComponent} from "./article-component/article-component.component";
+import {ProductsComponent} from "./products/products.component";
 import {OffresEmploiComponentComponent} from "./offres-emploi-component/offres-emploi-component.component";
-import {Notfound404Component} from "./notfound404/notfound404.component";
-import {DetailProduitComponent} from "./detail-produit/detail-produit.component";
-
+import {ArticlesComponentComponent} from "./articles-component/articles-component.component";
+import {NotfoundComponent} from "./notfound/notfound.component";
+import {DetailproductComponent} from "./detailproduct/detailproduct.component";
+import {AddproductComponent} from "./addproduct/addproduct.component";
+import {
+  TemplateDrivenFormComponentComponent
+} from "./template-driven-form-component/template-driven-form-component.component";
 
 const routes: Routes = [
-  {path:'',redirectTo:'products',pathMatch:"full"},
-  {path:'products',component:ProductComponent},
-  {path:'articles',component:ArticleComponentComponent},
-  {path:'product/:id',component:DetailProduitComponent},
-  {path:'offresemploi',component:OffresEmploiComponentComponent},
-  {path:'**',component:Notfound404Component}
+
+  {path:'', redirectTo:'products', pathMatch:'full'},
+  {path:'products', component:ProductsComponent},
+  {path:'detailproduct/:id', component:DetailproductComponent},
+  {path:'offres', component:OffresEmploiComponentComponent},
+  {path:'artticles', component:ArticlesComponentComponent},
+  {path:'TDFC', component:TemplateDrivenFormComponentComponent},
+  {path:'addproduct', component:AddproductComponent},
+  {path: '**', component: NotfoundComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {  }
